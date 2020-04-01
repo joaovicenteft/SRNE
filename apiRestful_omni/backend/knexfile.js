@@ -1,15 +1,20 @@
+// Update with your config settings.
 
 module.exports = {
 
   development: {
     client: 'sqlite3',
+    
     connection: {
-      filename: 'backend/src/database/sq.lite'
+      filename: '/home/joaovicente/Documents/developer_branch/apiRestful_omni/backend/src/db.sqlite'
     },
+
     migrations: {
-      filename: 'backend/migrations'
+      directory: '/home/joaovicente/Documents/developer_branch/apiRestful_omni/backend/migrations'
     },
-    useNullAsDefault: true
+
+    useNullAsDefault: true,
+
   },
 
   staging: {
@@ -29,6 +34,7 @@ module.exports = {
   },
 
   production: {
+
     client: 'postgresql',
     connection: {
       database: 'my_db',
