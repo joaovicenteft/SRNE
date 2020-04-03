@@ -2,7 +2,7 @@ const connection = require('../src/database/connection');
 
 module.exports = {
 
-    async store(req, res) {
+    async returnNameFromTableOngs(req, res) {
         const { id } = req.body;
 
         const ong = await connection("ongs")

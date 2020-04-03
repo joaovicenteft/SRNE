@@ -5,7 +5,7 @@ module.exports = {
 
     // create a table from model ong
 
-    async create(req, res) {
+    async createTableOngs(req, res) {
         const id = crypto.randomBytes(4).toString('HEX');
 
         const { name, email, whatsapp, city, uf } = req.body;
@@ -25,7 +25,7 @@ module.exports = {
     },
 
     // return the data from all de models ongs
-    async index(req, res) {
+    async returnAllTablesOngs(req, res) {
         const ongs = await connection("ongs").select("*");
         return res.json(ongs);
     }

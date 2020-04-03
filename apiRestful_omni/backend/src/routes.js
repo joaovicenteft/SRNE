@@ -5,19 +5,17 @@ const IncidentController = require('../controllers/IncidentController');
 const ProfileController = require('../controllers/ProfileController');
 const SessionController = require('../controllers/SessionController');
 
-routes.post('/ongs',  OngController.create);
-routes.get('/ongs', OngController.index);
+routes.post('/ongs',  OngController.createTableOngs);
+routes.get('/ongs', OngController.returnAllTablesOngs);
+
+routes.post("/sessions", SessionController.returnNameFromTableOngs);
+
+routes.get("/profile", ProfileController.dataFromOng_id);
 
 
-
-routes.post("/sessions", SessionController.store);
-
-routes.get("/profile", ProfileController.index);
-
-
-routes.post("/incidents", IncidentController.store);
-//routes.get("/incidents", IncidentController.index);
-routes.delete("/incidents/:id", IncidentController.delete);
+routes.post("/incidents", IncidentController.createTableIncidents);
+routes.get("/incidents", IncidentController.returnDataFromTableIncidents);
+routes.delete("/incidents/:id", IncidentController.deleteFromTableIncidentsById);
 
 
 

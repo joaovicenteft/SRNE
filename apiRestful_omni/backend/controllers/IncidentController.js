@@ -2,7 +2,19 @@ const connection = require('../src/database/connection');
 
 module.exports = {
 
-    async store(req, res) {
+    async returnDataFromTableIncidents(req, res) {
+        const { page = 1 } = req.query;
+
+        const incidents = await connection('incidents')
+            .limit(5)
+            .offset((page-1)*5)
+            .select('*');
+
+        return res.json(incidents);
+        
+    },
+
+    async createTableIncidents(req, res) {
         const { title, description, value } = req.body;
 
         const ong_id = req.headers.authorization;
@@ -17,7 +29,7 @@ module.exports = {
         return res.json({id});
     },
 
-    async delete(req, res) {
+    async deleteFromTableIncidentsById(req, res) {
      
         // the id to be deleted
         const { id } = req.params;
