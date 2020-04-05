@@ -1,23 +1,12 @@
-import React, {useState} from 'react';
-import Header from './Header';
-
+import React from 'react';
+import Logon from './pages/Logon/index';
+import Routes from './routes';
+import './global.css';
 
 function App() {
 
-
-    // the function useState is part of iteration of a variable
-    const [counter, setCounter] = useState(0);
-
-    function increment() {
-      setCounter(counter + 1);
-    }
-
     return (
-      <div>
-        <Header> Contador: {counter} </Header>
-        <button onClick={increment}> Increment </button>
-      </div>
-    );
+    <Routes/>);
 }
 
 export default App;
