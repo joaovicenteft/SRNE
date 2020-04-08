@@ -15,7 +15,7 @@ export default function Logon() {
     const [id, setId] = useState("");
 
     const history = useHistory();
-
+    
     async function handleLogin(e) {
         e.preventDefault();
 
@@ -37,7 +37,7 @@ export default function Logon() {
             <section className="form">
                 <img src={LogoImg} alt="ApiRestful"/>
 
-                <form>
+                <form onSubmit={handleLogin}>
                     <h1> Faça seu logon </h1>
 
                     <input
