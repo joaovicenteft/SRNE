@@ -12,3 +12,5 @@ exports.up = function(knex) {
 exports.down = function(knex) {
     return knex.schema.dropTable("ongs");
 };
+
+// some comments to see commits versions
