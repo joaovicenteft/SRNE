@@ -12,11 +12,8 @@ routes.post("/sessions", SessionController.returnNameFromTableOngs);
 
 routes.get("/profile", ProfileController.dataFromOng_id);
 
-
 routes.post("/incidents", IncidentController.createTableIncidents);
 routes.get("/incidents", IncidentController.returnDataFromTableIncidents);
 routes.delete("/incidents/:id", IncidentController.deleteFromTableIncidentsById);
-
-
 
 module.exports = routes;
