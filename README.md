@@ -16,5 +16,6 @@ backend
 
 frontend
 ```
+  cd /src
   npm start
 ```
