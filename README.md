@@ -10,11 +10,11 @@ o frontend, feito utilizando html/css e react.
 
 ### Executando
 backend
-´´´
+```
   nodemon index.js
-´´´
+```
 
 frontend
-´´´
+```
   npm start
-´´´
+```
