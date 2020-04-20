@@ -11,6 +11,7 @@ o frontend, feito utilizando html/css e react.
 ### Executando
 backend
 ```
+  cd /src
   nodemon index.js
 ```
 
