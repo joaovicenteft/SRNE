@@ -8,14 +8,20 @@ import logoImg from '../../assets/logo.png';
 
 import styles from './styles';
 
-
 export default function Incidents() {
+
+    const [incidents, setIncidents] = useState([]);
+    const [total, setTotal] = useState(0);
+  
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
+  
     const navigation = useNavigation();
 
 
     // go to the next page in apk
-    function navigateToDetail() {
-        navigation.navigate('Details');
+    function navigateToDetail(incident) {
+        navigation.navigate('Details', {incident});
     }
 
     async function loadIncidents() {
@@ -37,12 +43,11 @@ export default function Incidents() {
         setTotal(response.headers["x-total-count"]);
         setPage(page + 1);
         setLoading(false);
-
-        useEffect(() => {
-            loadIncidents();
-        }, []);
-
     }
+
+    useEffect(() => {
+        loadIncidents();
+    }, []);
 
     return (
         <View style={styles.container}> 
@@ -61,7 +66,7 @@ export default function Incidents() {
 
             <FlatList
             
-                data={[1,2,3]}
+                data={incidents}
                 style={styles.incidentList}
                 keyExtractor={incident => String(incident)}
 
@@ -70,7 +75,7 @@ export default function Incidents() {
                 onEndReached={loadIncidents}
                 onEndReachedThreshold={0.2}
 
-                renderItem={() => (
+                renderItem={( { item: incident }) => (
                    
                     <View style={styles.incident}>
                         <Text style={styles.incidentProperty}> ONG: </Text>
@@ -80,11 +85,16 @@ export default function Incidents() {
                         <Text style={styles.incidentValue}> Cadelinha atropelada: </Text>
                     
                         <Text style={styles.incidentProperty}> VALOR: </Text>
-                        <Text style={styles.incidentValue}> R$ 120,00 </Text>
-                            
+                        <Text style={styles.incidentValue}>
+                            {Intl.NumberFormat("pt-BR", {
+                                style: "currency",
+                                currency: "BRL"
+                            }).format(incident.value)}
+                        </Text>   
+                        
                         <TouchableOpacity 
                             style={styles.detailsButton}
-                            onPress={navigateToDetail}
+                            onPress={() => navigateToDetail(incident)}
                         > 
 
                         <Text style={styles.detailButtonText}> Ver mais detalhes </Text>

@@ -4,6 +4,9 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { View, Text, Image, TouchableOpacity, Linking } from "react-native";
 import * as MailComposer from "expo-mail-composer";
 
+import 'intl';
+import 'intl/locale-data/jsonp/en'; 
+
 import logoImg from "../../assets/logo.png";
 
 import styles from "./styles";
