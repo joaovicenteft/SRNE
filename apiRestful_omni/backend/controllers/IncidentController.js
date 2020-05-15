@@ -5,11 +5,23 @@ module.exports = {
     async returnDataFromTableIncidents(req, res) {
         const { page = 1 } = req.query;
 
-        const incidents = await connection('incidents')
-            .limit(5)
-            .offset((page-1)*5)
-            .select('*');
-
+        const [count] = await connection("incidents").count();
+    
+        const incidents = await connection("incidents")
+          .join("ongs", "ongs.id", "=", "incidents.ong_id")
+          .limit(5)
+          .offset((page - 1) * 5)
+          .select([
+            "incidents.*",
+            "ongs.name",
+            "ongs.whatsapp",
+            "ongs.email",
+            "ongs.city",
+            "ongs.uf"
+          ]);
+    
+        res.header("X-Total-Count", count["count(*)"]);
+    
         return res.json(incidents);
         
     },
@@ -44,7 +56,7 @@ module.exports = {
             .first();
 
         // verify if the id from table if equals to the ong_id headers params that was passed
-        if (incident.ong_id != ong_id) {
+        if (incident.ong_id !== ong_id) {
             return res.status(401).json({error: "Operation not allowed"});
         }
 

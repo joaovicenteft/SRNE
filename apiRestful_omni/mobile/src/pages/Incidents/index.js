@@ -54,7 +54,7 @@ export default function Incidents() {
             <View style={styles.header}>
                 <Image source={logoImg} />
                 <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>0 casos</Text>
+                    Total de <Text style={styles.headerTextBold}>{total} casos</Text>
                 </Text>
             </View>
 
@@ -68,7 +68,7 @@ export default function Incidents() {
             
                 data={incidents}
                 style={styles.incidentList}
-                keyExtractor={incident => String(incident)}
+                keyExtractor={incident => String(incident.id)}
 
                 //showsVerticalScrollIndicator={false}
 
@@ -79,10 +79,10 @@ export default function Incidents() {
                    
                     <View style={styles.incident}>
                         <Text style={styles.incidentProperty}> ONG: </Text>
-                        <Text style={styles.incidentValue}> APAD: </Text>
+                        <Text style={styles.incidentValue}> {incident.name} </Text>
                     
                         <Text style={styles.incidentProperty}> CASO: </Text>
-                        <Text style={styles.incidentValue}> Cadelinha atropelada: </Text>
+                        <Text style={styles.incidentValue}> {incident.title} </Text>
                     
                         <Text style={styles.incidentProperty}> VALOR: </Text>
                         <Text style={styles.incidentValue}>
@@ -97,8 +97,8 @@ export default function Incidents() {
                             onPress={() => navigateToDetail(incident)}
                         > 
 
-                        <Text style={styles.detailButtonText}> Ver mais detalhes </Text>
-                        <Feather name="arrow-right" size={16} color="#E02041" />
+                            <Text style={styles.detailButtonText}> Ver mais detalhes </Text>
+                            <Feather name="arrow-right" size={16} color="#E02041" />
 
                         </TouchableOpacity>
 
