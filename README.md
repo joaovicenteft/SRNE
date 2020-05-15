@@ -25,4 +25,4 @@ mobile (React Native)
 ```
   cd mobile/src
   npm start
-´´´
+```
