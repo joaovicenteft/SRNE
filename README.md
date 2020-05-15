@@ -9,14 +9,20 @@ o frontend, feito utilizando html/css e react. Inclui uma tela de cadastro e ret
 
 
 ### Executando
-backend
+backend (Node JS)
 ```
-  cd /src
+  cd backend/src
   nodemon index.js
 ```
 
-frontend
+frontend (React JS)
 ```
-  cd /src
+  cd frontend/src
   npm start
 ```
+
+mobile (React Native)
+```
+  cd mobile/src
+  npm start
+´´´
