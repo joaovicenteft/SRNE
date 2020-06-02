@@ -2,7 +2,7 @@
 Frontend: React JS\
 Mobile: React Native\
 Banco de dados relacional: sqlite3\
-Servidor: Node JS, com a biblioteca express.\
+Servidor: Node JS, com a biblioteca express.
 
 ## Sobre o projeto
 O projeto é parte do desafio proposto pela semana omnistack, fornecido pelo rocketseat.
