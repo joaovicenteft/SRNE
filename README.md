@@ -9,6 +9,8 @@ O projeto é parte do desafio proposto pela semana omnistack, fornecido pelo roc
 Nele, é proposto a construção do backend, com um servidor em Node JS que se conecta com um banco de dados relacional e
 o frontend, feito utilizando html/css e react. Inclui uma tela de cadastro e retorno de chave de busca.
 
+![Screenshot](frontendview.png)
+
 
 ### Executando
 backend (Node JS)
